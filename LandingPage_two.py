@@ -9,6 +9,7 @@ from dataclasses import dataclass
 from typing import Any, List
 import datetime as datetime
 import pandas as pd
+import csv
 import hashlib
 from PIL import Image
 import plotly.express as px
@@ -136,14 +137,44 @@ receiver = st.text_input("Input Impactor Information")
 
 # @TODO:
 # Add an input area where you can get a value for `amount` from the user.
-amount = st.text_input("Transaction Amount")
+#amount = st.text_input("Transaction Amount")
+miles_write = 0
+recycled_write = 0
+carbon_write = 0
+
 
 miles = st.number_input("Miles you biked today")
 if miles >= 2:
+    miles_write = miles
     st.write("great, you sent money")
 else:
     st.write("you did not ride enough to earn GAIA coin")
 
+recycled = st.number_input("Pounds you you recycled today")
+if recycled >= 2:
+    recycled_write = recycled
+    st.write("great, you sent money")
+else:
+    st.write("you did not recycle enough to earn GAIA coin")
+
+carbon = st.number_input("Pounds oc CO2 you captured today")
+if carbon >= 2:
+    carbon_write = carbon
+    st.write("great, you sent money")
+else:
+    st.write("you did not capture enough carbon to earn GAIA coin")    
+
+data = [miles_write, recycled_write, carbon_write]
+amount = miles_write + recycled_write*20 + carbon_write*1000
+header = ['Miles','Pounds Recycled', 'CO2 Captured']
+
+with open('green_totals.csv', 'w', encoding='UTF8', newline='') as f:
+    writer = csv.writer(f)
+    # write the header
+    writer.writerow(header)
+
+    # write multiple rows
+    writer.writerow(data)
 if st.button("Add Block"):
     prev_block = pychain.chain[-1]
     prev_block_hash = prev_block.hash_block()
@@ -165,14 +196,23 @@ if st.button("Add Block"):
 ################################################################################
 # Streamlit Code (continues)
 
+bar_data = pd.read_csv('green_totals.csv')
+
+
 st.markdown("## The PyChain Ledger")
 
 pychain_df = pd.DataFrame(pychain.chain)
 st.write(pychain_df)
 
-bar_chart = px.bar(x = miles,labels = "miles ridden")
+bar_chart = px.bar(bar_data, title = "You've made an Impact!")
 st.sidebar.plotly_chart(bar_chart)
+st.sidebar.write("You have earned: " + str(amount) +" GAIA Coin!")
 
+#trace = go.Bar(x=bar_data.index,y=bar_data.values,showlegend = True)
+#layout = go.Layout(title = "test")
+#data = [trace]
+#fig = go.Figure(data=data,layout=layout)
+#st.sidebar.plotly_chart(fig)
 difficulty = st.sidebar.slider("Block Difficulty", 1, 5, 2)
 pychain.difficulty = difficulty
 

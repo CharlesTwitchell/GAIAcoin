@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="Images/logo_transparent.png" alt="Logo" width="200" height="200">
+    <img src="Images/gaia coin (1).png" alt="Logo" width="200" height="200">
   </a>
 
   <h3 align="center">Gaia Coin</h3>

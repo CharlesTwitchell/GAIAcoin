@@ -201,7 +201,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
  
 Below is a link to the presentation slide to our project:
 
-[GAIA COIN_PITCHDECK](https://github.com/sangramsinghg/vix_predictor/blob/main/VIX%20PITCHDECK_2.pdf)
+[GAIA COIN_PITCHDECK](GAIA COIN_Final.pdf)
 
 
 

@@ -188,7 +188,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 
-* George Kraft
+* George Kraft - [@Github](https://github.com/georgekraft) - george.kraft@email.com
 * Charles Twitchell - [@Github](https://github.com/paocarvajal1912) - paola.antonieta@gmail.com
 * Robert Gianni - [@Github](https://github.com/sangramsinghg) - sangramsinghg@yahoo.com
 * Ahmed Mohammed - [@Github](https://github.com/Ahmed-Mahjoub) -  ahmedelkarar9@gmail.com

@@ -77,7 +77,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project : VIX PREDICTOR
+## About The Project : Gaia Coin
 
 
 ### Team: Charles Twitchell,George Kraft, Robert Giannini, Ahmed Mohommed, Doreen Ngo
@@ -125,12 +125,7 @@ pip install streamlit
 1) Metamask
 2) 
 
-### Model files
 
-1) vix_adaboost_model.ipynb
-2) vix_predictor_finta.ipynb
-3) vix_predictor_prophet.ipynb
-4) vix_neural_neural_network_model.ipynb
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -190,7 +185,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 * George Kraft - [@Github](https://github.com/georgekraft) - george.kraft@email.com
 * Charles Twitchell - [@Github](https://github.com/paocarvajal1912) - paola.antonieta@gmail.com
-* Robert Gianni - [@Github](https://github.com/sangramsinghg) - sangramsinghg@yahoo.com
+* Robert Gianni - 
 * Ahmed Mohammed - [@Github](https://github.com/Ahmed-Mahjoub) -  ahmedelkarar9@gmail.com
 * Doreen Ngo - [@Github](https://github.com/ngomatterwhat) - doreen.sngo@gmail.com
 

@@ -126,14 +126,16 @@ pychain = setup()
 # @TODO:
 # Delete the `input_data` variable from the Streamlit interface.
 # input_data = st.text_input("Block Data")
-
+donor_wallet = st.text_input("Donate to GAIA coin with your smart wallet")
+donation_amount = st.text_input("Input Donation Amount")
+st.button("Donate!")
 # @TODO:
 # Add an input area where you can get a value for `sender` from the user.
-sender = st.text_input("Input Donor Information")
+sender = st.text_input("Donation wallet address")
 
 # @TODO:
 # Add an input area where you can get a value for `receiver` from the user.
-receiver = st.text_input("Input Impactor Information")
+receiver = st.text_input("Impactor's smart wallet address")
 
 # @TODO:
 # Add an input area where you can get a value for `amount` from the user.
@@ -144,23 +146,23 @@ carbon_write = 0
 
 
 miles = st.number_input("Miles you biked today")
-if miles >= 2:
+if miles >= 5:
     miles_write = miles
-    st.write("great, you sent money")
+    st.write("great, you got money")
 else:
     st.write("you did not ride enough to earn GAIA coin")
 
 recycled = st.number_input("Pounds you you recycled today")
 if recycled >= 2:
     recycled_write = recycled
-    st.write("great, you sent money")
+    st.write("great, you got money")
 else:
     st.write("you did not recycle enough to earn GAIA coin")
 
-carbon = st.number_input("Pounds oc CO2 you captured today")
+carbon = st.number_input("Pounds of CO2 you captured today")
 if carbon >= 2:
     carbon_write = carbon
-    st.write("great, you sent money")
+    st.write("great, you got money")
 else:
     st.write("you did not capture enough carbon to earn GAIA coin")    
 
@@ -175,7 +177,7 @@ with open('green_totals.csv', 'w', encoding='UTF8', newline='') as f:
 
     # write multiple rows
     writer.writerow(data)
-if st.button("Add Block"):
+if st.button("Get GAIA"):
     prev_block = pychain.chain[-1]
     prev_block_hash = prev_block.hash_block()
 
@@ -199,7 +201,7 @@ if st.button("Add Block"):
 bar_data = pd.read_csv('green_totals.csv')
 
 
-st.markdown("## The PyChain Ledger")
+st.markdown("## GAIA Transactions")
 
 pychain_df = pd.DataFrame(pychain.chain)
 st.write(pychain_df)
@@ -216,7 +218,7 @@ st.sidebar.write("You have earned: " + str(amount) +" GAIA Coin!")
 difficulty = st.sidebar.slider("Block Difficulty", 1, 5, 2)
 pychain.difficulty = difficulty
 
-st.sidebar.write("# Block Inspector")
+st.sidebar.write("# GAIA Inspector")
 selected_block = st.sidebar.selectbox(
     "Which block would you like to see?", pychain.chain
 )
